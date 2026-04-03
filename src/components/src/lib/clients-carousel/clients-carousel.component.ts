@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientsCarouselComponent {
-  private baseClients: Client[] = [
+  private baseClients: Omit<Client, 'id'>[] = [
     { name: 'Café Urbano', image: 'assets/clients/cafe-urbano.svg' },
     { name: 'Bella Moda', image: 'assets/clients/bella-moda.svg' },
     { name: 'TechNova Solutions', image: 'assets/clients/technova.svg' },
@@ -26,7 +26,7 @@ export class ClientsCarouselComponent {
 }
 
 export interface Client {
-  id?: number;
+  id: number;
   name: string;
   image: string;
 }

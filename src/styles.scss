@@ -35,12 +35,7 @@
 
 .body {
   background-color: #070709;
-  background-image: url('/assets/background.png');
   min-height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  backdrop-filter: blur(100px);
 
   &__content {
     width: 100%;

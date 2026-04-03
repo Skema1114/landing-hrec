@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   inject,
+  OnDestroy,
   OnInit,
   PLATFORM_ID,
 } from '@angular/core';
@@ -15,17 +16,24 @@ import {
   styleUrl: './video-frame.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VideoFrameComponent implements OnInit {
+export class VideoFrameComponent implements OnInit, OnDestroy {
   private platformId = inject(PLATFORM_ID);
   private cdr = inject(ChangeDetectorRef);
+  private overlayTimeout: ReturnType<typeof setTimeout> | null = null;
   showOverlay = false;
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => {
+      this.overlayTimeout = setTimeout(() => {
         this.showOverlay = true;
         this.cdr.markForCheck();
       }, 6000);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.overlayTimeout) {
+      clearTimeout(this.overlayTimeout);
     }
   }
 }

@@ -18,7 +18,7 @@ export class HeaderComponent {
     {
       id: 2,
       image: 'assets/icon/social/whatsapp.svg',
-      url: 'https://wa.me/',
+      url: 'https://wa.me/5500000000000',
       detail: 'Entre em contato',
     },
   ];
