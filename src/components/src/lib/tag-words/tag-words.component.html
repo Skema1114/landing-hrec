@@ -1,22 +1,14 @@
 <section class="tag-words">
-  <h2 class="tag-words__title">Título</h2>
+  <h2 class="tag-words__title">Por que marcas escolhem a RecPlay?</h2>
 
   <div class="tag-words__grid">
     @for (tag of tagWordsList; track tag.id) {
     <article class="tag-words__grid__item">
       <img
+        loading="lazy"
         [src]="tag.img"
-        [attr.alt]="tag.title"
+        [alt]="tag.title"
         class="tag-words__grid__item__video"
-        style="
-          background: linear-gradient(
-              0deg,
-              rgba(187, 29, 29, 0.4) 0%,
-              rgba(187, 29, 29, 0.4) 100%
-            ),
-            lightgray 50% / cover no-repeat, #27272a;
-          mix-blend-mode: hard-light;
-        "
       />
 
       <hr class="tag-words__grid__item__line" />

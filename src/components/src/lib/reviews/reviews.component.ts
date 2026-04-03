@@ -1,42 +1,43 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'lib-reviews',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './reviews.component.html',
   styleUrl: './reviews.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReviewsComponent {
   reviews: Review[] = [
     {
       id: 1,
       rating: 5,
-      title: 'Conteúdo que da resultado',
-      content: 'Amei todo o processo, vi resultados logo de cara.',
+      title: 'Triplicamos o engajamento no Instagram',
+      content:
+        'Antes da RecPlay, nossos vídeos eram amadores e não geravam resultado nenhum. Depois da primeira campanha, nosso engajamento no Instagram triplicou em menos de 30 dias.',
       avatar: 'assets/template/no-image.svg',
-      author: 'Alexandra Matos',
-      date: '15/07/2024',
+      author: 'Fernanda Oliveira',
+      date: '22/03/2025',
     },
     {
       id: 2,
       rating: 5,
-      title: 'Personalizado e Completo',
+      title: 'Profissionalismo do início ao fim',
       content:
-        'Os vídeos produzidos são da mais alta qualidade e atenderam as minhas espectativas.',
+        'Contratamos a RecPlay para o vídeo institucional da nossa startup e o resultado superou todas as expectativas. O roteiro ficou certeiro e entregaram antes do prazo.',
       avatar: 'assets/template/no-image.svg',
-      author: 'Jhonatan Ortiz',
-      date: '09/07/2024',
+      author: 'Ricardo Mendes',
+      date: '10/01/2025',
     },
     {
       id: 3,
-      rating: 2,
-      title: 'Ótimo conteúdo, ótimos resultados',
-      content: 'Presenciei resultados de verdade, recomendo!',
+      rating: 5,
+      title: 'ROI real em vídeo para ads',
+      content:
+        'Investimos em vídeos para nossas campanhas de tráfego pago e o custo por lead caiu 40%. A RecPlay não entrega só vídeo bonito — entrega vídeo que dá retorno financeiro.',
       avatar: 'assets/template/no-image.svg',
-      author: 'Monica Percara',
-      date: '15/07/2024',
+      author: 'Camila Rezende',
+      date: '05/06/2025',
     },
   ];
 }

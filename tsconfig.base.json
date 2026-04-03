@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@landing-hrec/components": ["src/components/src/index.ts"],
-      "@landing-hrec/shareds": ["src/shareds/src/index.ts"]
+      "@landing-recplay/components": ["src/components/src/index.ts"],
+      "@landing-recplay/shareds": ["src/shareds/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

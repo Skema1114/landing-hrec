@@ -1,73 +1,86 @@
-@mixin white-gradient {
-  //   background: linear-gradient(
-  //     to right,
-  //     rgba(255, 255, 255, 1) 0%,
-  //     rgba(255, 255, 255, 0) 100%
-  //   );
+:host {
+  display: block;
+  width: 100%;
 }
 
-$animationSpeed: 40s;
+@mixin dark-gradient($direction) {
+  background: linear-gradient(
+    to #{$direction},
+    #09090b 0%,
+    rgba(9, 9, 11, 0) 100%
+  );
+}
+
+$itemCount: 6;
+$itemWidth: 120px;
+$gap: 48px;
+$animationSpeed: 30s;
 
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 7));
+    // Translate by exactly one set: itemCount items + itemCount gaps
+    // (the gap between the last item of set 1 and first item of set 2 counts)
+    transform: translateX(calc((#{$itemWidth} + #{$gap}) * #{$itemCount} * -1));
   }
 }
 
 .slide-section {
   display: flex;
+  width: 100%;
 
   &__slider {
-    background: white;
-    //   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-    margin: auto;
     overflow: hidden;
     position: relative;
     background-color: #09090b;
-    padding: 24px;
+    padding: 24px 0;
     width: 100%;
 
     &::before,
     &::after {
-      @include white-gradient;
       content: '';
-      height: 75px;
+      height: 100%;
       position: absolute;
-      width: 75px;
+      width: 100px;
       z-index: 2;
-    }
-
-    &::after {
-      right: 0;
       top: 0;
-      transform: rotateZ(180deg);
     }
 
     &::before {
+      @include dark-gradient(right);
       left: 0;
-      top: 0;
+    }
+
+    &::after {
+      @include dark-gradient(left);
+      right: 0;
     }
 
     &__slide-track {
       animation: scroll $animationSpeed linear infinite;
       display: flex;
-      width: calc(75px * 5);
+      // Let the track size itself from its children — no fixed width
+      width: max-content;
       align-items: center;
-      justify-content: space-between;
-      gap: 48px;
+      gap: $gap;
 
       &__slide {
-        height: 75px;
-        width: 75px;
-        // border-bottom: 1px solid #27272a;
-        background-color: #09090b;
+        flex-shrink: 0;
+        height: 72px;
+        width: $itemWidth;
 
         &__image {
-          height: 72;
-          width: 72;
+          height: 72px;
+          width: $itemWidth;
+          object-fit: contain;
+          filter: grayscale(100%) brightness(0.7);
+          transition: filter 0.3s ease;
+
+          &:hover {
+            filter: grayscale(0%) brightness(1);
+          }
         }
       }
     }

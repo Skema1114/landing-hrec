@@ -1,12 +1,13 @@
-<section class="slide-section">
+<section class="slide-section" aria-label="Nossos clientes">
   <div class="slide-section__slider">
     <div class="slide-section__slider__slide-track">
       @for (client of clients; track client.id) {
       <div class="slide-section__slider__slide-track__slide">
         <img
+          loading="lazy"
           class="slide-section__slider__slide-track__slide__image"
           [src]="client.image"
-          [attr.alt]="client.name"
+          [alt]="client.name"
         />
       </div>
       }

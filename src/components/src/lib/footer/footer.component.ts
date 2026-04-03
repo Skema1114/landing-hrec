@@ -1,30 +1,17 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'lib-footer',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
   navFooterList: FooterNav[] = [
-    {
-      id: 1,
-      href: '#',
-      detail: 'Termos de uso',
-    },
-    {
-      id: 2,
-      href: '#',
-      detail: 'Política de Privacidade',
-    },
-    {
-      id: 3,
-      href: '#',
-      detail: 'LGPD',
-    },
+    { id: 1, href: '#', detail: 'Termos de Uso' },
+    { id: 2, href: '#', detail: 'Política de Privacidade' },
+    { id: 3, href: '#', detail: 'LGPD' },
   ];
 }
 

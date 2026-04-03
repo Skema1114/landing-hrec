@@ -1,0 +1,13 @@
+<section class="process">
+  <h2 class="process__title">Como a RecPlay trabalha</h2>
+
+  <div class="process__steps">
+    @for (step of steps; track step.number) {
+    <article class="process__steps__item">
+      <span class="process__steps__item__number">{{ step.number }}</span>
+      <h3 class="process__steps__item__title">{{ step.title }}</h3>
+      <p class="process__steps__item__description">{{ step.description }}</p>
+    </article>
+    }
+  </div>
+</section>

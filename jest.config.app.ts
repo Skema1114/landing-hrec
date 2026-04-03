@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'landing-hrec',
+  displayName: 'landing-recplay',
   preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: './coverage/landing-hrec',
+  coverageDirectory: './coverage/landing-recplay',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

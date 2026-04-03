@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 72" fill="none">
+  <rect width="120" height="72" rx="8" fill="#1c1917"/>
+  <polygon points="20,50 32,20 44,50" fill="none" stroke="#06b6d4" stroke-width="2"/>
+  <circle cx="32" cy="38" r="4" fill="#06b6d4"/>
+  <text x="52" y="34" font-family="sans-serif" font-size="13" font-weight="700" fill="#f5f5f4" letter-spacing="-0.5">Tech</text>
+  <text x="86" y="34" font-family="sans-serif" font-size="13" font-weight="700" fill="#06b6d4" letter-spacing="-0.5">Nova</text>
+  <text x="52" y="48" font-family="sans-serif" font-size="8" fill="#a8a29e" letter-spacing="2">SOLUTIONS</text>
+</svg>

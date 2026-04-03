@@ -1,13 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'lib-containers',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './containers.component.html',
   styleUrl: './containers.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ContainersComponent {
-  isFirstContent = true;
-}
+export class ContainersComponent {}

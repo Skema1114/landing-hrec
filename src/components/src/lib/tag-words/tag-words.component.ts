@@ -1,37 +1,36 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'lib-tag-words',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './tag-words.component.html',
   styleUrl: './tag-words.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TagWordsComponent {
   tagWordsList: TagWords[] = [
     {
       id: 1,
       link: '',
-      title: 'Vídeos de alta qualidade',
+      title: 'Roteiro estratégico que converte',
       img: 'assets/template/4k.png',
     },
     {
       id: 2,
       link: '',
-      title: 'Preços competitivos',
-      img: 'assets/template/price.png',
+      title: 'Captação com equipamento cinema',
+      img: 'assets/template/production.png',
     },
     {
       id: 3,
       link: '',
-      title: 'Produção rápida',
-      img: 'assets/template/production.png',
+      title: 'Entrega otimizada por plataforma',
+      img: 'assets/template/price.png',
     },
     {
       id: 4,
       link: '',
-      title: 'Experiência e profissionalismo',
+      title: 'Resultado mensurável em vendas',
       img: 'assets/template/experience.png',
     },
   ];

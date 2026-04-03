@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .img-mobile {
   height: 48px;
   width: 48px;
@@ -11,12 +16,19 @@
 }
 
 .header {
-  background-color: black;
-  height: 121.12px;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
-  align-items: cente;
+  align-items: center;
   justify-content: space-between;
-  padding: 0 85px;
+  padding: 0 80px;
+  min-height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background-color 0.3s ease;
 
   &__content-image {
     align-content: center;
@@ -39,18 +51,25 @@
       background-color: rgba(39, 39, 42, 1);
       border-radius: 48px;
       overflow: hidden;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+
+      &:hover {
+        background-color: rgba(63, 63, 70, 1);
+        transform: translateY(-1px);
+      }
 
       &__image {
         position: relative;
         width: 24px;
-        height: 24.03px;
-        margin-top: -0.03px;
+        height: 24px;
       }
 
       &__detail {
         position: relative;
         width: fit-content;
-        font-family: 'Lexend-Regular', Helvetica;
+        font-family: Lexend, sans-serif;
         font-weight: 400;
         color: rgba(212, 212, 216, 1);
         font-size: 16px;

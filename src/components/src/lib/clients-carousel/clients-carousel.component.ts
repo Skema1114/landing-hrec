@@ -1,145 +1,32 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'lib-clients-carousel',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './clients-carousel.component.html',
   styleUrl: './clients-carousel.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientsCarouselComponent {
-  clients: Teste[] = [
-    {
-      id: 1,
-      name: 'Hot Dog Expresso',
-      image: 'assets/clients/hot-dog.png',
-    },
-    {
-      id: 2,
-      name: 'Lera Pepper',
-      image: 'assets/clients/lera-pepper.png',
-    },
-    {
-      id: 3,
-      name: 'Matheus Lera',
-      image: 'assets/clients/matheus-lera.png',
-    },
-    {
-      id: 4,
-      name: 'Pasta Way',
-      image: 'assets/clients/pasta-way.png',
-    },
-    {
-      id: 5,
-      name: 'Zibrow',
-      image: 'assets/clients/zibrow-barbearia.png',
-    },
-    {
-      id: 11,
-      name: 'Hot Dog Expresso',
-      image: 'assets/clients/hot-dog.png',
-    },
-    {
-      id: 12,
-      name: 'Lera Pepper',
-      image: 'assets/clients/lera-pepper.png',
-    },
-    {
-      id: 13,
-      name: 'Matheus Lera',
-      image: 'assets/clients/matheus-lera.png',
-    },
-    {
-      id: 14,
-      name: 'Pasta Way',
-      image: 'assets/clients/pasta-way.png',
-    },
-    {
-      id: 15,
-      name: 'Zibrow',
-      image: 'assets/clients/zibrow-barbearia.png',
-    },
-    {
-      id: 111,
-      name: 'Hot Dog Expresso',
-      image: 'assets/clients/hot-dog.png',
-    },
-    {
-      id: 112,
-      name: 'Lera Pepper',
-      image: 'assets/clients/lera-pepper.png',
-    },
-    {
-      id: 113,
-      name: 'Matheus Lera',
-      image: 'assets/clients/matheus-lera.png',
-    },
-    {
-      id: 114,
-      name: 'Pasta Way',
-      image: 'assets/clients/pasta-way.png',
-    },
-    {
-      id: 115,
-      name: 'Zibrow',
-      image: 'assets/clients/zibrow-barbearia.png',
-    },
-    {
-      id: 1111,
-      name: 'Hot Dog Expresso',
-      image: 'assets/clients/hot-dog.png',
-    },
-    {
-      id: 1112,
-      name: 'Lera Pepper',
-      image: 'assets/clients/lera-pepper.png',
-    },
-    {
-      id: 1113,
-      name: 'Matheus Lera',
-      image: 'assets/clients/matheus-lera.png',
-    },
-    {
-      id: 1114,
-      name: 'Pasta Way',
-      image: 'assets/clients/pasta-way.png',
-    },
-    {
-      id: 1115,
-      name: 'Zibrow',
-      image: 'assets/clients/zibrow-barbearia.png',
-    },
-    {
-      id: 11111,
-      name: 'Hot Dog Expresso',
-      image: 'assets/clients/hot-dog.png',
-    },
-    {
-      id: 11112,
-      name: 'Lera Pepper',
-      image: 'assets/clients/lera-pepper.png',
-    },
-    {
-      id: 11113,
-      name: 'Matheus Lera',
-      image: 'assets/clients/matheus-lera.png',
-    },
-    {
-      id: 11114,
-      name: 'Pasta Way',
-      image: 'assets/clients/pasta-way.png',
-    },
-    {
-      id: 11115,
-      name: 'Zibrow',
-      image: 'assets/clients/zibrow-barbearia.png',
-    },
+  private baseClients: Client[] = [
+    { name: 'Café Urbano', image: 'assets/clients/cafe-urbano.svg' },
+    { name: 'Bella Moda', image: 'assets/clients/bella-moda.svg' },
+    { name: 'TechNova Solutions', image: 'assets/clients/technova.svg' },
+    { name: 'Vila Saborosa', image: 'assets/clients/vila-saborosa.svg' },
+    { name: 'Iron Fitness', image: 'assets/clients/iron-fitness.svg' },
+    { name: 'Pátio Decor', image: 'assets/clients/patio-decor.svg' },
   ];
+
+  clients: Client[] = Array.from({ length: 4 }, (_, i) =>
+    this.baseClients.map((c, j) => ({
+      ...c,
+      id: i * this.baseClients.length + j + 1,
+    }))
+  ).flat();
 }
 
-export interface Teste {
-  id: number;
+export interface Client {
+  id?: number;
   name: string;
   image: string;
 }
