@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .tag-words {
   display: flex;
   flex-direction: column;
@@ -9,10 +14,9 @@
   &__title {
     max-width: 1280px;
     color: #ef4444;
-    font-size: 39px;
+    font-size: clamp(28px, 3.5vw, 39px);
     line-height: 1.2;
     font-weight: 700;
-    opacity: 1;
   }
 
   &__grid {
@@ -22,7 +26,7 @@
     max-width: 1280px;
     align-items: center;
     gap: 24px;
-    font-size: 25px;
+    font-size: 20px;
     color: #e4e4e7;
     line-height: 30px;
     justify-content: flex-start;
@@ -37,12 +41,30 @@
       flex: 1;
       flex-basis: 0%;
       margin: auto 0;
+      background: #18181b;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid transparent;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        border-color: rgba(239, 68, 68, 0.2);
+      }
 
       &__video {
-        opacity: 1;
-        background-color: #27272a;
+        background: linear-gradient(
+            0deg,
+            rgba(187, 29, 29, 0.4) 0%,
+            rgba(187, 29, 29, 0.4) 100%
+          ),
+          lightgray 50% / cover no-repeat, #27272a;
+        mix-blend-mode: hard-light;
         min-height: 160px;
         width: 100%;
+        object-fit: cover;
+        border-radius: 12px 12px 0 0;
       }
 
       &__line {
@@ -50,22 +72,11 @@
         border: 2px solid #52525b;
       }
 
-      // &__icon {
-      //   aspect-ratio: 250;
-      //   object-fit: contain;
-      //   object-position: center;
-      //   width: 100%;
-      //   border: 1px solid #3f3f46;
-      //   margin-top: 24px;
-      //   opacity: 1;
-      // }
-
       &__title {
         align-self: auto;
-        opacity: 1;
         min-height: 60px;
-        margin-top: 24px;
-        font-weight: 700;
+        padding: 16px;
+        font-weight: 600;
         margin: 0;
       }
     }
@@ -74,7 +85,7 @@
 
 @media (max-width: 991px) {
   .tag-words {
-    padding: 100px 20px;
+    padding: 80px 20px;
 
     &__title {
       max-width: 100%;

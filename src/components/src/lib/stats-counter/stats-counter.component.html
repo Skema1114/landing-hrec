@@ -1,0 +1,12 @@
+<section class="stats">
+  <h2 class="stats__title">Números que falam por nós</h2>
+
+  <div class="stats__grid">
+    @for (stat of stats; track stat.number) {
+    <article class="stats__grid__item">
+      <span class="stats__grid__item__number">{{ stat.number }}</span>
+      <p class="stats__grid__item__label">{{ stat.label }}</p>
+    </article>
+    }
+  </div>
+</section>

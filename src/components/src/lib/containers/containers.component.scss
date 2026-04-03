@@ -1,5 +1,6 @@
-p {
-  margin: 0;
+:host {
+  display: block;
+  width: 100%;
 }
 
 .text-content {
@@ -10,9 +11,8 @@ p {
   flex: 1 0 0%;
 
   &__title {
-    color: var(--Colors-red-500, #ef4444);
-    opacity: var(--sds-size-stroke-border);
-    font: 700 39px/47px Lexend, sans-serif;
+    color: #ef4444;
+    font: 700 clamp(28px, 3.5vw, 39px)/1.2 Lexend, sans-serif;
   }
 
   &__divider {
@@ -25,6 +25,7 @@ p {
     &__line {
       color: #52525b;
       border: 2px solid #52525b;
+      transition: border-color 0.3s ease;
     }
   }
 
@@ -32,14 +33,11 @@ p {
     margin-top: 32px;
     width: 100%;
     font: 400 20px/30px Lexend, sans-serif;
-    color: var(--Colors-zinc-200, #e4e4e7);
-    opacity: var(--sds-size-stroke-border);
+    color: #e4e4e7;
 
     &__primary-description,
     &__secondary-description {
-      color: var(--Colors-zinc-300, #d4d4d8);
-      opacity: var(--sds-size-stroke-border);
-      // margin-top: 12px;
+      color: #d4d4d8;
     }
   }
 
@@ -72,13 +70,29 @@ p {
   padding: 0;
   gap: 0;
   flex: 1 0 0%;
-  opacity: var(--sds-size-stroke-border);
-  background: var(--Colors-zinc-800, #27272a);
+  background: #27272a;
+  border-radius: 16px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    pointer-events: none;
+  }
 
   &__image {
     object-fit: contain;
     object-position: center;
-    width: 490.5px;
+    width: 100%;
+    max-width: 490px;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover &__image {
+    transform: scale(1.03);
   }
 }
 
@@ -92,32 +106,9 @@ p {
   }
 }
 
-// ===============
-
 .free-quote-button {
   margin-top: 32px;
   align-self: stretch;
-  border-radius: 48px;
-  border: 3px solid #09090b;
-  background: #ef4444;
-  box-shadow: 0 0 0 2px #f54f52;
-  min-height: 48px;
-  padding: 12px 24px;
-  color: #fff;
-  text-align: center;
-  font: 600 18px/1 Lexend, sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.free-quote-button:hover,
-.free-quote-button:focus {
-  background-color: #dc2626;
-  outline: none;
-}
-
-.free-quote-button:focus-visible {
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.5);
 }
 
 .double-container {
@@ -130,8 +121,8 @@ p {
     display: flex;
     min-width: 343px;
     max-width: 1100px;
-    align-items: flex-start;
-    gap: 119px;
+    align-items: center;
+    gap: 64px;
     justify-content: flex-start;
     flex-wrap: wrap;
     flex: 1 0 0%;

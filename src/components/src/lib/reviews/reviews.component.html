@@ -1,5 +1,5 @@
 <section class="review">
-  <h2 class="review__title">Titulo</h2>
+  <h2 class="review__title">O que nossos clientes dizem</h2>
 
   <div class="review__container">
     @for (review of reviews; track review.id) {
@@ -12,7 +12,7 @@
               ? 'assets/icon/star_selected.svg'
               : 'assets/icon/star_unselected.svg'
           "
-          [alt]="star <= review.rating ? 'Filled star' : 'Empty star'"
+          [alt]="star <= review.rating ? 'Estrela preenchida' : 'Estrela vazia'"
           class="review__container__card__rating__star-icon"
         />
         }
@@ -32,12 +32,11 @@
 
       <div class="review__container__card__user-info">
         <img
+          loading="lazy"
           [src]="review.avatar"
-          alt=""
+          [alt]="'Foto de ' + review.author"
           class="review__container__card__user-info__avatar"
         />
-
-        <!-- <div class="review__container__card__user-info__avatar"></div> -->
 
         <div class="review__container__card__user-info__details">
           <p class="review__container__card__user-info__name">

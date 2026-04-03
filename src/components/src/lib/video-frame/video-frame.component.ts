@@ -1,32 +1,39 @@
-import { CommonModule } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
   inject,
+  OnDestroy,
   OnInit,
-  Renderer2,
+  PLATFORM_ID,
 } from '@angular/core';
 
 @Component({
   selector: 'lib-video-frame',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './video-frame.component.html',
   styleUrl: './video-frame.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VideoFrameComponent implements OnInit {
+export class VideoFrameComponent implements OnInit, OnDestroy {
+  private platformId = inject(PLATFORM_ID);
   private cdr = inject(ChangeDetectorRef);
-  private elementRef = inject(ElementRef);
-  private renderer = inject(Renderer2);
+  private overlayTimeout: ReturnType<typeof setTimeout> | null = null;
+  showOverlay = false;
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.elementRef.nativeElement.querySelector(
-        '#i-frame-call'
-      ).style.display = 'flex';
+    if (isPlatformBrowser(this.platformId)) {
+      this.overlayTimeout = setTimeout(() => {
+        this.showOverlay = true;
+        this.cdr.markForCheck();
+      }, 6000);
+    }
+  }
 
-      this.cdr.detectChanges();
-    }, 6000);
+  ngOnDestroy(): void {
+    if (this.overlayTimeout) {
+      clearTimeout(this.overlayTimeout);
+    }
   }
 }

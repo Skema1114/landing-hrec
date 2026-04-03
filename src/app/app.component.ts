@@ -1,33 +1,36 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {
   ClientsCarouselComponent,
   ContainersComponent,
+  CtaViewComponent,
   FooterComponent,
   HeaderComponent,
+  ProcessStepsComponent,
   ReviewsComponent,
+  StatsCounterComponent,
   TagWordsComponent,
   VideoFrameComponent,
-} from '@landing-hrec/components';
-import { CtaViewComponent } from 'src/components/src/lib/cta-view/cta-view.component';
+} from '@landing-recplay/components';
 
 @Component({
   standalone: true,
   imports: [
     RouterModule,
-    CommonModule,
     HeaderComponent,
     ClientsCarouselComponent,
     VideoFrameComponent,
+    ContainersComponent,
+    ProcessStepsComponent,
+    TagWordsComponent,
+    StatsCounterComponent,
     ReviewsComponent,
     FooterComponent,
-    TagWordsComponent,
-    ContainersComponent,
     CtaViewComponent,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {}

@@ -4,7 +4,7 @@
   "projectType": "application",
   "sourceRoot": "e2e/src",
   "tags": [],
-  "implicitDependencies": ["landing-hrec"],
+  "implicitDependencies": ["landing-recplay"],
   "// targets": "to see all targets run: nx show project e2e --web",
   "targets": {}
 }

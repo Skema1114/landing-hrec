@@ -7,10 +7,10 @@ export default defineConfig({
     ...nxE2EPreset(__filename, {
       cypressDir: 'src',
       webServerCommands: {
-        default: 'nx run landing-hrec:serve:development',
-        production: 'nx run landing-hrec:serve:production',
+        default: 'nx run landing-recplay:serve:development',
+        production: 'nx run landing-recplay:serve:production',
       },
-      ciWebServerCommand: 'nx run landing-hrec:serve-static',
+      ciWebServerCommand: 'nx run landing-recplay:serve-static',
     }),
     baseUrl: 'http://localhost:4200',
   },

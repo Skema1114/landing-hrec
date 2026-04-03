@@ -1,38 +1,50 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
 .section-frame {
-  height: 562px;
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-height: 80vh;
   position: relative;
+  overflow: hidden;
 
   &__frame {
     width: 100%;
     height: 100%;
+    border: 0;
   }
 
   &__content {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 50px;
+    gap: 32px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
     padding: 20px;
-    border-radius: 8px;
     color: white;
-    width: 100%;
-    height: 100%;
+    animation: fadeIn 0.8s ease-out;
 
     &__title {
-      font-size: 60px;
       color: #fafafa;
       text-align: center;
-      font-family: Lexend;
-      font-size: 61px;
-      font-style: normal;
+      font-family: Lexend, sans-serif;
+      font-size: clamp(32px, 5vw, 61px);
       font-weight: 700;
-      line-height: 120%;
+      line-height: 1.2;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     }
 
     &__sub-content {
@@ -41,46 +53,27 @@
       flex-direction: column;
 
       &__title {
-        font-size: 20px;
-
         color: #fafafa;
         text-align: center;
-        font-family: Lexend;
-        font-size: 25px;
-        font-style: normal;
+        font-family: Lexend, sans-serif;
+        font-size: clamp(16px, 2.5vw, 25px);
         font-weight: 400;
-        line-height: 150%;
-      }
-
-      &__sub-title {
-        font-size: 20px;
+        line-height: 1.5;
+        text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
       }
     }
   }
 }
 
-.free-quote-button {
-  border-radius: 48px;
-  border: 3px solid #09090b;
-  background: #ef4444;
-  box-shadow: 0 0 0 2px #f54f52;
-  min-height: 48px;
-  padding: 12px 24px;
-  color: #fff;
-  text-align: center;
-  font: 600 18px/1 Lexend, sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.free-quote-button:hover,
-.free-quote-button:focus {
-  background-color: #dc2626;
-  outline: none;
-}
-
-.free-quote-button:focus-visible {
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.5);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 991px) {
@@ -91,16 +84,6 @@
   .section-frame {
     &__content {
       gap: 20px;
-
-      &__title {
-        font-size: 50px;
-      }
-
-      &__sub-content {
-        &__title {
-          font-size: 18px;
-        }
-      }
     }
   }
 }

@@ -1,27 +1,41 @@
-<section class="header">
+<div class="header">
   <div class="header__content-image">
     <img
       class="header__content-image__image img-mobile"
       src="assets/logo/logo-small.svg"
-      alt=""
+      alt="RecPlay logo"
+      width="48"
+      height="48"
     />
 
     <img
       class="header__content-image__image img-desktop"
       src="assets/logo/logo-large.svg"
-      alt=""
+      alt="RecPlay logo"
+      width="128"
+      height="48"
     />
   </div>
 
-  <div class="header__social">
+  <nav class="header__social" aria-label="Redes sociais">
     @for (socialButton of socialButtonList; track socialButton.id) {
-    <div class="header__social__button">
-      <img class="header__social__button__image" [src]="socialButton.image" />
+    <a
+      class="header__social__button"
+      [href]="socialButton.url"
+      target="_blank"
+      rel="noopener noreferrer"
+      [attr.aria-label]="socialButton.detail"
+    >
+      <img
+        class="header__social__button__image"
+        [src]="socialButton.image"
+        [alt]="socialButton.detail"
+      />
 
-      <div class="header__social__button__detail">
+      <span class="header__social__button__detail">
         {{ socialButton.detail }}
-      </div>
-    </div>
+      </span>
+    </a>
     }
-  </div>
-</section>
+  </nav>
+</div>

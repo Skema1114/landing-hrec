@@ -1,94 +1,50 @@
-<!-- <section class="footer">
-  <div class="footer__content">
-    <nav class="footer__content__nav">
-      <ul class="footer__content__nav__list">
-        @for (itemList of navFooterList; track itemList.id) {
-
-        <li>
-          <a [href]="itemList.href" class="footer__content__nav__list__link">{{
-            itemList.detail
-          }}</a>
-        </li>
-        }
-      </ul>
-    </nav>
-
-    <div class="footer__content__logo">
-      <img
-        src="assets/logo/logo-large.svg"
-        alt="Company logo"
-        class="footer__content__logo__image"
-      />
-
-      <div class="footer__content__logo__text-content">
-        <img
-          src="assets/icon/social/instagram.svg"
-          alt=""
-          class="footer__content__logo__text-content__name__icon"
-        />
-        <span class="footer__content__logo__text-content__name">h.recpro</span>
-      </div>
-    </div>
-
-    <div class="footer__content__cta">
-      <p class="footer__content__cta__text">Transforme ideias em ações.</p>
-      <button class="footer__content__cta__button">Entre em contato</button>
-    </div>
-  </div>
-</section>
-
-<section class="copyright">
-  <p class="copyright__detail">Desenvolvido por Rand²</p>
-</section>
- -->
-
 <footer class="footer">
-  <section class="footer-main">
+  <div class="footer-main">
     <div class="content">
-      <nav class="footer-nav">
-        <a href="#" class="footer-link">Termos de Uso</a>
-        <a href="#" class="footer-link">Política de Privacidade</a>
-        <a href="#" class="footer-link">LGPD</a>
+      <nav class="footer-nav" aria-label="Links do rodapé">
+        @for (nav of navFooterList; track nav.id) {
+        <a [href]="nav.href" class="footer-link">{{ nav.detail }}</a>
+        }
       </nav>
 
       <div class="logo-container">
         <img
           loading="lazy"
           src="assets/logo/logo-large.svg"
-          alt="Company logo"
+          alt="RecPlay logo"
           class="logo-image"
         />
         <div class="logo-wrapper">
           <img
             loading="lazy"
             src="assets/icon/social/instagram.svg"
-            alt=""
+            alt="Instagram"
             class="logo-icon"
           />
-          <span class="logo-text">h.recpro</span>
+          <span class="logo-text">&#64;recplay.studio</span>
         </div>
       </div>
 
       <div class="cta-container">
-        <p class="cta-text">Transforme ideias em ações</p>
-        <button class="cta-button">
+        <p class="cta-text">Sua história merece ser vista.</p>
+        <button class="cta-button" aria-label="Solicitar proposta via WhatsApp">
           <img
             loading="lazy"
             src="assets/icon/social/whatsapp.svg"
-            alt=""
+            alt="WhatsApp"
             class="cta-icon"
           />
-          <span>Entre em contato</span>
+          <span>Solicitar proposta</span>
         </button>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="footer-copyright">
+  <div class="footer-copyright">
     <p class="copyright-text">Desenvolvido por</p>
     <div class="copyright-logo">
       <span class="logo-name">Rand</span>
       <span class="logo-number">2</span>
     </div>
-  </section>
+  </div>
 </footer>

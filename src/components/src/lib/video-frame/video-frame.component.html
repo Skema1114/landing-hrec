@@ -1,30 +1,25 @@
-<section class="section-frame">
+<section class="section-frame" aria-label="Vídeo institucional">
   <iframe
     class="section-frame__frame"
-    src="https://www.youtube.com/embed/1JLUn2DFW4w?autoplay=1&loop=1&mute=1"
-    frameborder="0"
+    src="https://www.youtube.com/embed/1JLUn2DFW4w?autoplay=1&loop=1&mute=1&playlist=1JLUn2DFW4w"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
+    title="Vídeo institucional RecPlay"
   ></iframe>
 
-  <div class="section-frame__content" id="i-frame-call" style="display: none">
-    <h1 class="section-frame__content__title">Sua Empresa no Topo</h1>
+  @if (showOverlay) {
+  <div class="section-frame__content" id="i-frame-call">
+    <h1 class="section-frame__content__title">Vídeos que Vendem por Você</h1>
 
     <div class="section-frame__content__sub-content">
-      <h6 class="section-frame__content__sub-content__title">
-        Ajude sua empresa a se destacar no mercado com vídeos
+      <p class="section-frame__content__sub-content__title">
+        Produção audiovisual estratégica para marcas que
         <br class="divider-br" />
-        profissionais e de alta conversão.
-      </h6>
-
-      <!-- <h6 class="section-frame__content__sub-content__sub-title">
-      </h6> -->
+        querem dominar o digital e multiplicar resultados.
+      </p>
     </div>
 
-    <!-- <button class="section-frame__content__button btn btn-secondary">
-      Solicite um orçamento gratuito!
-    </button> -->
-
-    <button class="free-quote-button">Solicite um orçamento gratuito</button>
+    <button class="free-quote-button">Quero um vídeo que converte</button>
   </div>
+  }
 </section>
